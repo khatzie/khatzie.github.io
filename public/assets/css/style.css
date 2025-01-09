@@ -1,0 +1,316 @@
+html body{
+	background-color: #C9E6F0;
+	font-family: 'Montserrat', sans-serif;
+	color: #7a5932;
+	line-height: 2;
+	font-weight: 400;
+}
+
+header{
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+}
+
+header .navbar{
+	background-color: #C9E6F0 !important;
+	height: 77px;
+	max-width: 1150px;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.navbar-brand, .navbar-brand a:hover{
+	color:#7a5932 !important;
+	font-weight: 700;
+	font-size:16px;
+	letter-spacing: 5px;
+	
+}
+
+section .container{
+	max-width: 1150px;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+section#introduction {
+	padding-top:77px;
+}
+section#introduction .image-container{
+    height: 250px;
+    width: 250px;
+    background-image: url(../images/img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+	margin: 20px auto;
+    background-color: #E8ECD7;
+	box-shadow: -1px 1px 8px -1px #C9E6F0;
+	-webkit-box-shadow: -1px 1px 8px -1px #C9E6F0;
+	-moz-box-shadow: -1px 1px 8px -1px #C9E6F0;
+}
+section#introduction .image{
+	background-color:#78B3CE;
+	
+}
+
+section#introduction .image .icon{
+	height: 25px;
+	width: 25px;
+	background-size: cover;
+	background-repeat:no-repeat;
+	margin-top:10px;
+}
+.facebook{
+	background-image: url(../images/icons8-facebook.png);
+}
+.facebook:hover{
+	background-image: url(../images/icons8-facebook-hover.png);
+}
+.instagram{
+	background-image: url(../images/icons8-instagram.png);
+}
+.instagram:hover{
+	background-image: url(../images/icons8-instagram-hover.png);
+}
+.linkedin{
+	background-image: url(../images/icons8-linkedin.png);
+}
+.linkedin:hover{
+	background-image: url(../images/icons8-linkedin-hover.png);
+}
+.github{
+	background-image: url(../images/icons8-github.png);
+}
+.github:hover{
+	background-image: url(../images/icons8-github-hover.png);
+}
+section#introduction .image>div{
+	margin: 40% auto;
+	text-align:center;
+}
+
+section#introduction .image ul{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+	padding: 0;
+}
+section#introduction .content{
+	background-color: #FBF8EF;
+	padding: 5% 8%;
+	
+}
+
+section#introduction .content h1{
+	font-weight: 200;
+	font-size: 75px;
+	line-height: 74px;
+	margin: 0;
+	padding: 0;
+}
+
+section#introduction .content p{
+	margin: 30px 0 0;
+	padding: 0 0 0 10px;
+	transition: background .3s,border .3s,border-radius .3s,box-shadow .3s,transform var(--e-transform-transition-duration,.4s);
+}
+
+section.blue .container .col-4, section.yellow .container .col-4, section.orange .container .col-4{
+	padding:0;
+}
+
+section.blue .title-box{
+	background-color:#0A97B0;
+	transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
+	padding: 150px 10px;
+}
+section.orange .title-box{
+	background-color:#F96E2A;
+	transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
+	padding: 150px 10px;
+}
+section.yellow .title-box{
+	background-color:#FADA7A;
+	transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
+	padding: 150px 10px;
+}
+
+section.blue .title-box h2, section.orange .title-box h2, section.yellow .title-box h2{
+    font-weight: 300;
+    text-align: center;
+    color: #fcf7f1;
+	font-size:54px;
+}
+
+section.yellow .title-box h2{
+	color: #7a5932;
+}
+   
+section#about .content, section#skills .content, section#blogs .content, section#portfolio .content{
+	background-color: #FFF8DE;
+	padding: 5%;
+	
+} 
+
+section#tech-stack .content, section#contact .content, section#tech-stacks .content, section#experience .content{
+	background-color: #FBF8EF;
+	padding: 5%;
+	
+} 
+
+
+
+section h6{
+	margin-bottom: 30px;
+}
+
+.accordion-button:focus{
+	box-shadow:none;
+}
+.accordion-button{
+	background-color: #0A97B0 !important;
+	color: #ffffff !important;
+}
+.accordion-body{
+	background-color: #faeddf !important;
+	color:#7a5932;
+}
+
+.accordion-body h4{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.technical-skills h6{
+	margin-bottom: 10px;
+}
+.soft-skills .row{
+	text-align:center;
+	margin:20px 0;
+}
+
+.soft-skills .row p{
+    line-height: 18px;
+    font-size: 12px;
+}
+.soft-skills .row .card{
+    padding: 10px;
+    background-color: #FBF8EF;
+    border-radius: 10px;
+    border-color: #c4bdb5;
+	color: #7a5932;
+	height: 230px;
+	margin: 0 10px;
+}
+
+.soft-skills .icon{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px;
+    width: 100px;
+    background-position: center;
+	margin:auto;
+	
+}
+.soft-skills .icon.attention-detail{
+	background-image: url(../images/attention-detail.png);
+}
+
+.soft-skills .icon.attention-detail:hover{
+	background-image: url(../images/attention-detail-hover.png);
+}
+.soft-skills .icon.communication{
+	background-image: url(../images/communication.png);
+}
+
+.soft-skills .icon.communication:hover{
+	background-image: url(../images/communication-hover.png);
+}
+.soft-skills .icon.communication{
+	background-image: url(../images/communication.png);
+}
+
+.soft-skills .icon.communication:hover{
+	background-image: url(../images/communication-hover.png);
+}
+
+.soft-skills .icon.adaptability{
+	background-image: url(../images/adaptability.png);
+}
+
+.soft-skills .icon.adaptability:hover{
+	background-image: url(../images/adaptability-hover.png);
+}
+
+.soft-skills .icon.critical-thinking{
+	background-image: url(../images/critical-thinking.png);
+}
+
+.soft-skills .icon.critical-thinking:hover{
+	background-image: url(../images/critical-thinking-hover.png);
+}
+
+.soft-skills .icon.problem-solving{
+	background-image: url(../images/problem-solving.png);
+}
+
+.soft-skills .icon.problem-solving:hover{
+	background-image: url(../images/problem-solving-hover.png);
+}
+
+.soft-skills .icon.team-work{
+	background-image: url(../images/team-work.png);
+}
+
+.soft-skills .icon.team-work:hover{
+	background-image: url(../images/team-work-hover.png);
+}
+
+.soft-skills .icon.time-management{
+	background-image: url(../images/time-management.png);
+}
+
+.soft-skills .icon.time-management:hover{
+	background-image: url(../images/time-management-hover.png);
+}
+
+.technical-skills{
+	margin-top:50px;
+}
+
+.technical-skills .card{
+    padding: 15px;
+    background-color: #FBF8EF;
+    border-radius: 10px;
+    border-color: #c4bdb5;
+	color: #7a5932;
+	margin: 10px;
+}
+.btn-outline-primary {
+	border-color:#0A97B0;
+	color:#0A97B0;
+}
+
+.btn-outline-primary:hover{
+	background-color:#0A97B0;
+	border-color:#0A97B0;
+}
+#portfolio .image{
+	margin: 10px;
+}
+
+#portfolio h6{
+	margin-bottom:0;
+}
+
+#portfolio p em{
+	font-size:10px;
+}
+
