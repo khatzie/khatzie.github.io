@@ -503,22 +503,6 @@
 					"description": "Connect directly for roles, partnerships, and professional conversations.",
 					"href": "https://www.linkedin.com/in/katherinepetalio",
 					"linkLabel": "linkedin.com/in/katherinepetalio"
-				},
-				{
-					"label": "Code samples",
-					"title": "GitHub",
-					"description": "Browse repositories, side projects, and technical work.",
-					"href": "https://github.com/khatzie",
-					"linkLabel": "github.com/khatzie"
-				},
-				{
-					"label": "Working style",
-					"variant": "note",
-					"items": [
-						"User-focused planning",
-						"Clean, maintainable implementation",
-						"End-to-end delivery mindset"
-					]
 				}
 			]
 		}
