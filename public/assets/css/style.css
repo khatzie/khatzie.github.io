@@ -300,7 +300,20 @@ section h6{
 	margin-top: 12px;
 }
 
+.portfolio-actions {
+	display: flex;
+	justify-content: center;
+	margin-top: 12px;
+	width: 100%;
+}
+
 .technical-skills-actions .btn {
+	padding: 12px 22px;
+	border-radius: 999px;
+	font-weight: 600;
+}
+
+.portfolio-actions .btn {
 	padding: 12px 22px;
 	border-radius: 999px;
 	font-weight: 600;
@@ -335,6 +348,65 @@ section h6{
 
 #portfolio p em{
 	font-size:10px;
+}
+
+#portfolio .content,
+#skills .content,
+#experience .content {
+	position: relative;
+	overflow: hidden;
+}
+
+#portfolio .content > *,
+#skills .content > *,
+#experience .content > * {
+	position: relative;
+	z-index: 1;
+}
+
+#portfolio .content {
+	background:
+		radial-gradient(circle at left top, rgba(10, 151, 176, 0.14), transparent 34%),
+		linear-gradient(180deg, #fff8de 0%, #fff3dc 100%);
+}
+
+#portfolio .content::before {
+	content: "";
+	position: absolute;
+	inset: 24px;
+	border-radius: 28px;
+	border: 1px solid rgba(122, 89, 50, 0.12);
+	pointer-events: none;
+}
+
+#skills .content {
+	background:
+		radial-gradient(circle at top right, rgba(249, 110, 42, 0.18), transparent 32%),
+		linear-gradient(135deg, #fff8de 0%, #fffef8 45%, #f9efe0 100%);
+}
+
+#skills .content::before {
+	content: "";
+	position: absolute;
+	inset: 24px;
+	border-radius: 28px;
+	border: 1px solid rgba(122, 89, 50, 0.12);
+	pointer-events: none;
+}
+
+#experience .content {
+	background:
+		radial-gradient(circle at top left, rgba(10, 151, 176, 0.16), transparent 32%),
+		linear-gradient(135deg, #fbf8ef 0%, #fffef8 48%, #eef8fb 100%);
+}
+
+#experience .content::before {
+	content: "";
+	position: absolute;
+	inset: 24px;
+	border-radius: 28px;
+	border: 1px solid rgba(122, 89, 50, 0.12);
+	pointer-events: none;
 }
 
 #tech-stacks .content {
@@ -801,6 +873,12 @@ section h6{
 	.tech-stack-card,
 	.tech-stack-delivery,
 	#tech-stacks .content::before {
+		border-radius: 20px;
+	}
+
+	#portfolio .content::before,
+	#skills .content::before,
+	#experience .content::before {
 		border-radius: 20px;
 	}
 

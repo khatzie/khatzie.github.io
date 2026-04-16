@@ -95,12 +95,15 @@ function renderPortfolio(data) {
 		return;
 	}
 
+	const visibleImages = data.images.slice(0, 6);
+	const hiddenImages = data.images.slice(6);
+
 	container.innerHTML = `
 		<h3>${escapeHtml(data.heading)}</h3>
 		<h6>${escapeHtml(data.subheading)}</h6>
 		<p><em>${escapeHtml(data.note)}</em></p>
 		<div class="row">
-			${data.images.map((image, index) => `
+			${visibleImages.map((image, index) => `
 				<div class="col-4">
 					<div class="image">
 						<img src="${escapeAttribute(image)}" class="img-thumbnail" alt="Portfolio project ${index + 1}">
@@ -108,8 +111,40 @@ function renderPortfolio(data) {
 				</div>
 			`).join('')}
 		</div>
+		${hiddenImages.length ? `
+			<div class="row portfolio-more" id="portfolio-more" hidden>
+				${hiddenImages.map((image, index) => `
+					<div class="col-4">
+						<div class="image">
+							<img src="${escapeAttribute(image)}" class="img-thumbnail" alt="Portfolio project ${visibleImages.length + index + 1}">
+						</div>
+					</div>
+				`).join('')}
+			</div>
+			<div class="portfolio-actions">
+				<button class="btn btn-outline-primary" type="button" id="portfolio-toggle" aria-expanded="false">Show all</button>
+			</div>
+		` : ''}
 	`;
+
+	const toggleButton = document.getElementById('portfolio-toggle');
+	const moreContainer = document.getElementById('portfolio-more');
+	if (toggleButton && moreContainer) {
+		toggleButton.addEventListener('click', () => {
+			const isHidden = moreContainer.hasAttribute('hidden');
+			if (isHidden) {
+				moreContainer.removeAttribute('hidden');
+				toggleButton.textContent = 'Show less';
+				toggleButton.setAttribute('aria-expanded', 'true');
+				return;
+			}
+
+			moreContainer.setAttribute('hidden', '');
+			toggleButton.textContent = 'Show all';
+			toggleButton.setAttribute('aria-expanded', 'false');
+		});
 	}
+}
 
 function renderSimpleSection(id, data) {
 	const container = document.getElementById(id);
