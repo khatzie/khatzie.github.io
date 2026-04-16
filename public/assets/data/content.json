@@ -37,21 +37,66 @@
 			"subheading": "Crafting clean code for smarter solutions.",
 			"note": "** Due to the NDA, I cannot disclose specific details about certain projects.",
 			"images": [
-				"public/assets/images/portfolio/1.png",
-				"public/assets/images/portfolio/2.png",
-				"public/assets/images/portfolio/3.png",
-				"public/assets/images/portfolio/4.png",
-				"public/assets/images/portfolio/5.png",
-				"public/assets/images/portfolio/6.png",
-				"public/assets/images/portfolio/7.png",
-				"public/assets/images/portfolio/8.png",
-				"public/assets/images/portfolio/9.png",
-				"public/assets/images/portfolio/10.png",
-				"public/assets/images/portfolio/11.png",
-				"public/assets/images/portfolio/12.png",
-				"public/assets/images/portfolio/13.png",
-				"public/assets/images/portfolio/14.png",
-				"public/assets/images/portfolio/15.png"
+				{
+					"src": "public/assets/images/portfolio/1.png",
+					"title": "H! Molly HRIS"
+				},
+				{
+					"src": "public/assets/images/portfolio/2.png",
+					"title": "H! Molly HRIS Mobile App"
+				},
+				{
+					"src": "public/assets/images/portfolio/3.png",
+					"title": "H! Molly HRIS Mobile App - Tracking App"
+				},
+				{
+					"src": "public/assets/images/portfolio/4.png",
+					"title": "Market Operator Performance Monitoring System"
+				},
+				{
+					"src": "public/assets/images/portfolio/5.png",
+					"title": "Max Support Inc. Website"
+				},
+				{
+					"src": "public/assets/images/portfolio/6.png",
+					"title": "Oh! Jobs PH Mobile Application"
+				},
+				{
+					"src": "public/assets/images/portfolio/7.png",
+					"title": "Oh! Jobs PH Website"
+				},
+				{
+					"src": "public/assets/images/portfolio/8.png",
+					"title": "Zooey Care Mobile Application"
+				},
+				{
+					"src": "public/assets/images/portfolio/9.png",
+					"title": "Zooey Care Website"
+				},
+				{
+					"src": "public/assets/images/portfolio/10.png",
+					"title": "Life Insurance Mobile Application"
+				},
+				{
+					"src": "public/assets/images/portfolio/11.png",
+					"title": "Ameinri Website"
+				},
+				{
+					"src": "public/assets/images/portfolio/12.png",
+					"title": "E-Changere Website"
+				},
+				{
+					"src": "public/assets/images/portfolio/13.png",
+					"title": "Intercultural Communications Training Center Inc. Website"
+				},
+				{
+					"src": "public/assets/images/portfolio/14.png",
+					"title": "Oh! Philippines Mobile Application"
+				},
+				{
+					"src": "public/assets/images/portfolio/15.png",
+					"title": "Philippine Festival Mobile Application"
+				}
 			]
 		},
 		"techStacks": {

@@ -95,31 +95,20 @@ function renderPortfolio(data) {
 		return;
 	}
 
-	const visibleImages = data.images.slice(0, 6);
-	const hiddenImages = data.images.slice(6);
+	const portfolioItems = normalizePortfolioItems(data.images || []);
+	const visibleImages = portfolioItems.slice(0, 6);
+	const hiddenImages = portfolioItems.slice(6);
 
 	container.innerHTML = `
 		<h3>${escapeHtml(data.heading)}</h3>
 		<h6>${escapeHtml(data.subheading)}</h6>
 		<p><em>${escapeHtml(data.note)}</em></p>
 		<div class="row">
-			${visibleImages.map((image, index) => `
-				<div class="col-4">
-					<div class="image">
-						<img src="${escapeAttribute(image)}" class="img-thumbnail" alt="Portfolio project ${index + 1}">
-					</div>
-				</div>
-			`).join('')}
+			${visibleImages.map((item, index) => renderPortfolioImageCard(item, index + 1)).join('')}
 		</div>
 		${hiddenImages.length ? `
 			<div class="row portfolio-more" id="portfolio-more" hidden>
-				${hiddenImages.map((image, index) => `
-					<div class="col-4">
-						<div class="image">
-							<img src="${escapeAttribute(image)}" class="img-thumbnail" alt="Portfolio project ${visibleImages.length + index + 1}">
-						</div>
-					</div>
-				`).join('')}
+				${hiddenImages.map((item, index) => renderPortfolioImageCard(item, visibleImages.length + index + 1)).join('')}
 			</div>
 			<div class="portfolio-actions">
 				<button class="btn btn-outline-primary" type="button" id="portfolio-toggle" aria-expanded="false">Show all</button>
@@ -143,6 +132,210 @@ function renderPortfolio(data) {
 			toggleButton.textContent = 'Show all';
 			toggleButton.setAttribute('aria-expanded', 'false');
 		});
+	}
+
+	initializePortfolioLightbox(container);
+}
+
+function normalizePortfolioItems(items) {
+	return items.map((item, index) => {
+		if (typeof item === 'string') {
+			return {
+				src: item,
+				title: `Project ${String(index + 1).padStart(2, '0')}`
+			};
+		}
+
+		return {
+			src: item.src || '',
+			title: item.title || `Project ${String(index + 1).padStart(2, '0')}`
+		};
+	});
+}
+
+function renderPortfolioImageCard(item, index) {
+	const title = item.title || `Project ${String(index).padStart(2, '0')}`;
+	const alt = `${title}`;
+	return `
+		<div class="col-4">
+			<div class="image">
+				<button class="portfolio-image-button" type="button" data-image-src="${escapeAttribute(item.src)}" data-image-alt="${escapeAttribute(alt)}" aria-label="Open ${escapeAttribute(alt)} in full view">
+					<img src="${escapeAttribute(item.src)}" class="img-thumbnail" alt="${escapeAttribute(alt)}">
+				</button>
+			</div>
+		</div>
+	`;
+}
+
+function initializePortfolioLightbox(container) {
+	if (container.dataset.lightboxBound === 'true') {
+		return;
+	}
+
+	const modalElement = ensurePortfolioModal();
+	const modalImage = document.getElementById('portfolio-modal-image');
+	const modalCaption = document.getElementById('portfolio-modal-caption');
+	const closeButton = document.getElementById('portfolio-modal-close');
+	const previousButton = document.getElementById('portfolio-modal-prev');
+	const nextButton = document.getElementById('portfolio-modal-next');
+	if (!modalElement || !modalImage || !modalCaption) {
+		return;
+	}
+
+	container.dataset.lightboxBound = 'true';
+	container.addEventListener('click', (event) => {
+		const trigger = event.target.closest('.portfolio-image-button');
+		if (!trigger) {
+			return;
+		}
+
+		const imageButtons = Array.from(container.querySelectorAll('.portfolio-image-button'));
+		const currentIndex = imageButtons.indexOf(trigger);
+		showPortfolioModalImage(modalElement, imageButtons, currentIndex, modalImage, modalCaption);
+		openPortfolioModal(modalElement);
+	});
+
+	if (closeButton) {
+		closeButton.addEventListener('click', () => {
+			closePortfolioModal(modalElement, modalImage, modalCaption);
+		});
+	}
+
+	if (previousButton) {
+		previousButton.addEventListener('click', () => {
+			navigatePortfolioModal(modalElement, -1, modalImage, modalCaption);
+		});
+	}
+
+	if (nextButton) {
+		nextButton.addEventListener('click', () => {
+			navigatePortfolioModal(modalElement, 1, modalImage, modalCaption);
+		});
+	}
+
+	modalElement.addEventListener('click', (event) => {
+		if (event.target === modalElement || event.target.hasAttribute('data-portfolio-close')) {
+			closePortfolioModal(modalElement, modalImage, modalCaption);
+		}
+	});
+
+	document.addEventListener('keydown', (event) => {
+		if (!modalElement.classList.contains('is-visible')) {
+			return;
+		}
+
+		if (event.key === 'Escape') {
+			closePortfolioModal(modalElement, modalImage, modalCaption);
+			return;
+		}
+
+		if (event.key === 'ArrowLeft') {
+			navigatePortfolioModal(modalElement, -1, modalImage, modalCaption);
+			return;
+		}
+
+		if (event.key === 'ArrowRight') {
+			navigatePortfolioModal(modalElement, 1, modalImage, modalCaption);
+		}
+	});
+}
+
+function ensurePortfolioModal() {
+	let modalElement = document.getElementById('portfolio-modal');
+	if (modalElement) {
+		return modalElement;
+	}
+
+	modalElement = document.createElement('div');
+	modalElement.id = 'portfolio-modal';
+	modalElement.className = 'portfolio-modal';
+	modalElement.tabIndex = -1;
+	modalElement.setAttribute('role', 'dialog');
+	modalElement.setAttribute('aria-modal', 'true');
+	modalElement.setAttribute('aria-labelledby', 'portfolio-modal-caption');
+	modalElement.setAttribute('aria-hidden', 'true');
+	modalElement.setAttribute('hidden', '');
+	modalElement.innerHTML = `
+		<div class="portfolio-modal-dialog">
+			<div class="portfolio-modal-content">
+				<div class="portfolio-modal-header">
+					<h2 class="portfolio-modal-title" id="portfolio-modal-caption">Portfolio image</h2>
+					<button type="button" class="portfolio-modal-close" id="portfolio-modal-close" data-portfolio-close aria-label="Close full view">&times;</button>
+				</div>
+				<div class="portfolio-modal-body">
+					<button type="button" class="portfolio-modal-nav portfolio-modal-prev" id="portfolio-modal-prev" aria-label="Previous image">&lsaquo;</button>
+					<img id="portfolio-modal-image" src="" alt="Portfolio image">
+					<button type="button" class="portfolio-modal-nav portfolio-modal-next" id="portfolio-modal-next" aria-label="Next image">&rsaquo;</button>
+				</div>
+			</div>
+		</div>
+	`;
+
+	document.body.appendChild(modalElement);
+	return modalElement;
+}
+
+function openPortfolioModal(modalElement) {
+	modalElement.hidden = false;
+	modalElement.classList.add('is-visible');
+	modalElement.setAttribute('aria-hidden', 'false');
+	document.body.classList.add('portfolio-modal-open');
+	modalElement.focus();
+}
+
+function closePortfolioModal(modalElement, modalImage, modalCaption) {
+	modalElement.classList.remove('is-visible');
+	modalElement.setAttribute('aria-hidden', 'true');
+	modalElement.hidden = true;
+	document.body.classList.remove('portfolio-modal-open');
+	delete modalElement.dataset.currentIndex;
+	delete modalElement.dataset.totalImages;
+	modalImage.src = '';
+	modalImage.alt = 'Portfolio image';
+	modalCaption.textContent = 'Portfolio image';
+}
+
+function showPortfolioModalImage(modalElement, imageButtons, index, modalImage, modalCaption) {
+	if (!imageButtons.length) {
+		return;
+	}
+
+	const normalizedIndex = ((index % imageButtons.length) + imageButtons.length) % imageButtons.length;
+	const trigger = imageButtons[normalizedIndex];
+	modalElement.dataset.currentIndex = String(normalizedIndex);
+	modalElement.dataset.totalImages = String(imageButtons.length);
+	modalImage.src = trigger.dataset.imageSrc || '';
+	modalImage.alt = trigger.dataset.imageAlt || 'Portfolio image';
+	modalCaption.textContent = trigger.dataset.imageAlt || 'Portfolio image';
+	updatePortfolioModalNavigation(modalElement, imageButtons.length);
+}
+
+function navigatePortfolioModal(modalElement, direction, modalImage, modalCaption) {
+	const container = document.getElementById('portfolio-content');
+	if (!container) {
+		return;
+	}
+
+	const imageButtons = Array.from(container.querySelectorAll('.portfolio-image-button'));
+	if (!imageButtons.length) {
+		return;
+	}
+
+	const currentIndex = Number(modalElement.dataset.currentIndex || '0');
+	showPortfolioModalImage(modalElement, imageButtons, currentIndex + direction, modalImage, modalCaption);
+}
+
+function updatePortfolioModalNavigation(modalElement, totalImages) {
+	const previousButton = document.getElementById('portfolio-modal-prev');
+	const nextButton = document.getElementById('portfolio-modal-next');
+	const shouldShowNavigation = totalImages > 1;
+
+	if (previousButton) {
+		previousButton.hidden = !shouldShowNavigation;
+	}
+
+	if (nextButton) {
+		nextButton.hidden = !shouldShowNavigation;
 	}
 }
 
