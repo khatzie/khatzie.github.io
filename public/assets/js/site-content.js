@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 		const content = await response.json();
 		renderPage(content);
+		initializeScrollReveal();
 		initializeHeaderNavigation();
 	} catch (error) {
 		renderLoadError(error);
@@ -108,7 +109,7 @@ function renderPortfolio(data) {
 			${visibleImages.map((item, index) => renderPortfolioImageCard(item, index + 1)).join('')}
 		</div>
 		${hiddenImages.length ? `
-			<div class="row portfolio-more" id="portfolio-more" hidden>
+			<div class="row portfolio-more expandable-panel" id="portfolio-more" hidden>
 				${hiddenImages.map((item, index) => renderPortfolioImageCard(item, visibleImages.length + index + 1)).join('')}
 			</div>
 			<div class="portfolio-actions">
@@ -123,13 +124,13 @@ function renderPortfolio(data) {
 		toggleButton.addEventListener('click', () => {
 			const isHidden = moreContainer.hasAttribute('hidden');
 			if (isHidden) {
-				moreContainer.removeAttribute('hidden');
+				toggleExpandablePanel(moreContainer, true);
 				toggleButton.textContent = 'Show less';
 				toggleButton.setAttribute('aria-expanded', 'true');
 				return;
 			}
 
-			moreContainer.setAttribute('hidden', '');
+			toggleExpandablePanel(moreContainer, false);
 			toggleButton.textContent = 'Show all';
 			toggleButton.setAttribute('aria-expanded', 'false');
 		});
@@ -429,7 +430,7 @@ function renderSkills(data) {
 				</div>
 			`).join('')}
 			${hiddenTechnicalSkills.length ? `
-				<div class="technical-skills-more" id="technical-skills-more" hidden>
+				<div class="technical-skills-more expandable-panel" id="technical-skills-more" hidden>
 					${hiddenTechnicalSkills.map((skill) => `
 						<div class="card">
 							<strong>${escapeHtml(skill.title)}</strong>
@@ -450,17 +451,77 @@ function renderSkills(data) {
 		toggleButton.addEventListener('click', () => {
 			const isHidden = moreContainer.hasAttribute('hidden');
 			if (isHidden) {
-				moreContainer.removeAttribute('hidden');
+				toggleExpandablePanel(moreContainer, true);
 				toggleButton.textContent = 'Show less';
 				toggleButton.setAttribute('aria-expanded', 'true');
 				return;
 			}
 
-			moreContainer.setAttribute('hidden', '');
+			toggleExpandablePanel(moreContainer, false);
 			toggleButton.textContent = 'Show all';
 			toggleButton.setAttribute('aria-expanded', 'false');
 		});
 	}
+}
+
+function toggleExpandablePanel(panel, shouldExpand) {
+	if (!panel || panel.dataset.animating === 'true') {
+		return;
+	}
+
+	panel.dataset.animating = 'true';
+	panel.style.overflow = 'hidden';
+
+	if (shouldExpand) {
+		panel.hidden = false;
+		panel.classList.add('is-expanded');
+		panel.style.height = '0px';
+		panel.style.opacity = '0';
+
+		requestAnimationFrame(() => {
+			const targetHeight = panel.scrollHeight;
+			panel.style.height = `${targetHeight}px`;
+			panel.style.opacity = '1';
+		});
+
+		const handleExpandEnd = (event) => {
+			if (event.propertyName !== 'height') {
+				return;
+			}
+
+			panel.style.height = 'auto';
+			panel.style.overflow = '';
+			panel.dataset.animating = 'false';
+			panel.removeEventListener('transitionend', handleExpandEnd);
+		};
+
+		panel.addEventListener('transitionend', handleExpandEnd);
+		return;
+	}
+
+	panel.style.height = `${panel.scrollHeight}px`;
+	panel.style.opacity = '1';
+
+	requestAnimationFrame(() => {
+		panel.style.height = '0px';
+		panel.style.opacity = '0';
+	});
+
+	const handleCollapseEnd = (event) => {
+		if (event.propertyName !== 'height') {
+			return;
+		}
+
+		panel.hidden = true;
+		panel.classList.remove('is-expanded');
+		panel.style.height = '';
+		panel.style.opacity = '';
+		panel.style.overflow = '';
+		panel.dataset.animating = 'false';
+		panel.removeEventListener('transitionend', handleCollapseEnd);
+	};
+
+	panel.addEventListener('transitionend', handleCollapseEnd);
 }
 
 function renderExperience(data) {
@@ -680,6 +741,61 @@ function initializeHeaderNavigation() {
 	window.addEventListener('resize', updateActiveLink);
 	window.addEventListener('hashchange', updateActiveLink);
 	updateActiveLink();
+}
+
+function initializeScrollReveal() {
+	const revealGroups = [
+		'#intro-profile',
+		'#intro-content > *',
+		'section .title-box',
+		'#portfolio-content > h3, #portfolio-content > h6, #portfolio-content > p, #portfolio-content .col-4, #portfolio-content .portfolio-actions',
+		'#tech-stacks-content > *',
+		'.tech-stack-card, .tech-stack-delivery',
+		'#skills-content > h3, #skills-content > h6, #skills-content h4, .soft-skills .card, .technical-skills .card, .technical-skills-actions',
+		'#experience-content > h3, #experience-content > h6, .accordion-item',
+		'#blogs-content > *',
+		'.blog-card',
+		'#contact-content > *',
+		'.contact-card'
+	];
+
+	revealGroups.forEach((selector) => {
+		const elements = Array.from(document.querySelectorAll(selector));
+		elements.forEach((element, index) => {
+			element.classList.add('scroll-reveal');
+			element.style.setProperty('--reveal-delay', `${Math.min(index * 70, 420)}ms`);
+		});
+	});
+
+	const revealElements = Array.from(document.querySelectorAll('.scroll-reveal'));
+	if (!revealElements.length) {
+		return;
+	}
+
+	if (!('IntersectionObserver' in window)) {
+		revealElements.forEach((element) => {
+			element.classList.add('is-visible');
+		});
+		return;
+	}
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (!entry.isIntersecting) {
+				return;
+			}
+
+			entry.target.classList.add('is-visible');
+			observer.unobserve(entry.target);
+		});
+	}, {
+		threshold: 0.16,
+		rootMargin: '0px 0px -10% 0px'
+	});
+
+	revealElements.forEach((element) => {
+		observer.observe(element);
+	});
 }
 
 function renderListItems(items) {
