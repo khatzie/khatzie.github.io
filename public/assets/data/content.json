@@ -311,9 +311,24 @@
 			"subheading": "Navigating success through dedication and growth.",
 			"items": [
 				{
-					"role": "Lead Mobile App Developer",
-					"companyPeriod": "Web Outsourcing Gateway Inc. | Sep 2016 - Sep Present",
+					"role": "Senior Mobile App Developer",
+					"companyPeriod": "Talk Liberation Ltd. (New Zealand - Remote) | April 2025 - Present",
 					"expanded": true,
+					"responsibilities": [
+						"Develop mobile applications for existing products and services.",
+						"Collaborate with the Creative Team in formulating and refining the mobile app's UI/UX design.",
+						"Secure mobile applications using MobSF, including vulnerability analysis, remediation, and continuous security improvements.",
+						"Implement error logging and monitoring to ensure application stability and faster issue resolution.",
+						"Assist in improving APIs and resolving loading and performance issues for both web and mobile applications.",
+						"Assist in improving web-based applications using Nuxt.js and Vue.js, including performance optimization and feature enhancements.",
+						"Develop automated scripts to optimize content processing, data handling, and overall application efficiency.",
+						"Create and maintain development documentation, release notes, and other mobile application-related technical documents."
+					]
+				},
+				{
+					"role": "Lead Mobile App Developer",
+					"companyPeriod": "Web Outsourcing Gateway Inc. | September 2016 - April 2025",
+					"expanded": false,
 					"responsibilities": [
 						"Led mobile application development, ensuring deliverables meet client requirements and expectations.",
 						"Managed Apple Developer and Google Play Console accounts, overseeing updates and submissions for all mobile app projects.",
@@ -326,7 +341,7 @@
 				},
 				{
 					"role": "Senior Web Developer",
-					"companyPeriod": "Web Outsourcing Gateway Inc. | Sep 2015 - Present",
+					"companyPeriod": "Web Outsourcing Gateway Inc. | September 2015 - April 2025",
 					"expanded": false,
 					"responsibilities": [
 						"Led and managed software development teams, overseeing task assignments, reviewing work, and ensuring adherence to project deadlines.",
@@ -351,7 +366,7 @@
 				},
 				{
 					"role": "Web Developer (Intern)",
-					"companyPeriod": "WorldWide Venture Holdings Asia | Nov 2011 - Jan 2012",
+					"companyPeriod": "WorldWide Venture Holdings Asia | November 2011 - January 2012",
 					"expanded": false,
 					"responsibilities": [
 						"Contributed to the development of key project modules, ensuring seamless integration with the overall system.",

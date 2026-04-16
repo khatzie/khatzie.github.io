@@ -293,6 +293,18 @@ section h6{
 	color: #7a5932;
 	margin: 10px;
 }
+
+.technical-skills-actions {
+	display: flex;
+	justify-content: center;
+	margin-top: 12px;
+}
+
+.technical-skills-actions .btn {
+	padding: 12px 22px;
+	border-radius: 999px;
+	font-weight: 600;
+}
 .btn-outline-primary {
 	border-color:#0A97B0;
 	color:#0A97B0;

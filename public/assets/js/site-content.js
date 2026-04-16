@@ -1,10 +1,4 @@
 document.addEventListener('DOMContentLoaded', async () => {
-	const inlineContent = getInlineContent();
-	if (window.location.protocol === 'file:' && inlineContent) {
-		renderPage(inlineContent);
-		return;
-	}
-
 	try {
 		const response = await fetch('public/assets/data/content.json');
 		if (!response.ok) {
@@ -14,27 +8,28 @@ document.addEventListener('DOMContentLoaded', async () => {
 		const content = await response.json();
 		renderPage(content);
 	} catch (error) {
-		if (inlineContent) {
-			renderPage(inlineContent);
-			return;
-		}
-
+		renderLoadError(error);
 		console.error('Unable to load site content.', error);
 	}
 });
 
-function getInlineContent() {
-	const element = document.getElementById('site-content-data');
-	if (!element) {
-		return null;
+function renderLoadError(error) {
+	const introContent = document.getElementById('intro-content');
+	if (!introContent) {
+		return;
 	}
 
-	try {
-		return JSON.parse(element.textContent);
-	} catch (error) {
-		console.error('Unable to parse inline site content.', error);
-		return null;
-	}
+	const isLocalFile = window.location.protocol === 'file:';
+	const message = isLocalFile
+		? 'This page loads site content from public/assets/data/content.json. Open it through a local web server instead of file://, for example: python3 -m http.server 8000'
+		: `Unable to load site content. ${escapeHtml(error.message || 'Unknown error.')}`;
+
+	introContent.innerHTML = `
+		<div class="alert alert-warning" role="alert">
+			${escapeHtml(message)}
+		</div>
+	`;
+	setText('navbar-brand-text', 'Content unavailable');
 }
 
 function renderPage(content) {
@@ -172,6 +167,9 @@ function renderSkills(data) {
 		return;
 	}
 
+	const visibleTechnicalSkills = data.technicalSkills.slice(0, 3);
+	const hiddenTechnicalSkills = data.technicalSkills.slice(3);
+
 	const softSkillRows = chunk(data.softSkills, 3).map((group) => `
 		<div class="row">
 			${group.map((skill) => `
@@ -195,14 +193,45 @@ function renderSkills(data) {
 		</div>
 		<div class="technical-skills">
 			<h4><img src="${escapeAttribute(data.technicalSkillsIcon)}" width="70" alt="${escapeAttribute(data.technicalSkillsTitle)}"> ${escapeHtml(data.technicalSkillsTitle)}</h4>
-			${data.technicalSkills.map((skill) => `
+			${visibleTechnicalSkills.map((skill) => `
 				<div class="card">
 					<strong>${escapeHtml(skill.title)}</strong>
 					<ul>${renderListItems(skill.items)}</ul>
 				</div>
 			`).join('')}
+			${hiddenTechnicalSkills.length ? `
+				<div class="technical-skills-more" id="technical-skills-more" hidden>
+					${hiddenTechnicalSkills.map((skill) => `
+						<div class="card">
+							<strong>${escapeHtml(skill.title)}</strong>
+							<ul>${renderListItems(skill.items)}</ul>
+						</div>
+					`).join('')}
+				</div>
+				<div class="technical-skills-actions">
+					<button class="btn btn-outline-primary" type="button" id="technical-skills-toggle" aria-expanded="false">Show all</button>
+				</div>
+			` : ''}
 		</div>
 	`;
+
+	const toggleButton = document.getElementById('technical-skills-toggle');
+	const moreContainer = document.getElementById('technical-skills-more');
+	if (toggleButton && moreContainer) {
+		toggleButton.addEventListener('click', () => {
+			const isHidden = moreContainer.hasAttribute('hidden');
+			if (isHidden) {
+				moreContainer.removeAttribute('hidden');
+				toggleButton.textContent = 'Show less';
+				toggleButton.setAttribute('aria-expanded', 'true');
+				return;
+			}
+
+			moreContainer.setAttribute('hidden', '');
+			toggleButton.textContent = 'Show all';
+			toggleButton.setAttribute('aria-expanded', 'false');
+		});
+	}
 }
 
 function renderExperience(data) {
