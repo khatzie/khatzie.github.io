@@ -103,9 +103,27 @@ section#introduction .image ul{
 	padding: 0;
 }
 section#introduction .content{
-	background-color: #FBF8EF;
+	position: relative;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at top left, rgba(249, 110, 42, 0.18), transparent 34%),
+		linear-gradient(135deg, #fbf8ef 0%, #fffef8 48%, #eef8fb 100%);
 	padding: 5% 8%;
 	
+}
+
+section#introduction .content::before{
+	content: "";
+	position: absolute;
+	inset: 24px;
+	border-radius: 28px;
+	border: 1px solid rgba(122, 89, 50, 0.12);
+	pointer-events: none;
+}
+
+section#introduction .content > *{
+	position: relative;
+	z-index: 1;
 }
 
 section#introduction .content h1{
@@ -164,8 +182,6 @@ section#tech-stack .content, section#contact .content, section#tech-stacks .cont
 	padding: 5%;
 	
 } 
-
-
 
 section h6{
 	margin-bottom: 30px;
@@ -888,6 +904,10 @@ section h6{
 
 	.contact-card,
 	#contact .content::before {
+		border-radius: 20px;
+	}
+
+	section#introduction .content::before {
 		border-radius: 20px;
 	}
 }
