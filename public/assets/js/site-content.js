@@ -400,19 +400,19 @@ function renderSkills(data) {
 	const visibleTechnicalSkills = data.technicalSkills.slice(0, 3);
 	const hiddenTechnicalSkills = data.technicalSkills.slice(3);
 
-	const softSkillRows = chunk(data.softSkills, 3).map((group) => `
-		<div class="row">
-			${group.map((skill) => `
-				<div class="col-4">
-					<div class="card">
-						<div class="icon ${escapeAttribute(skill.icon)}"></div>
-						<strong>${escapeHtml(skill.title)}</strong>
-						<p>${escapeHtml(skill.description)}</p>
-					</div>
-				</div>
-			`).join('')}
+	const softSkillRows = `
+	<div class="row">
+		${data.softSkills.map((skill) => `
+		<div class="col-4">
+			<div class="card">
+			<div class="icon ${escapeAttribute(skill.icon)}"></div>
+			<strong>${escapeHtml(skill.title)}</strong>
+			<p>${escapeHtml(skill.description)}</p>
+			</div>
 		</div>
-	`).join('');
+		`).join('')}
+	</div>
+	`;
 
 	container.innerHTML = `
 		<h3>${escapeHtml(data.heading)}</h3>
@@ -730,9 +730,11 @@ function initializeHeaderNavigation() {
 	if (toggler) {
 		toggler.addEventListener('click', () => {
 			const isExpanded = toggler.getAttribute('aria-expanded') === 'true';
+			const nextExpandedState = String(!isExpanded);
+			toggler.setAttribute('aria-expanded', nextExpandedState);
 			const expandedLabel = toggler.querySelector('.navbar-toggler-label');
 			if (expandedLabel) {
-				expandedLabel.textContent = isExpanded ? 'Close' : 'Menu';
+				expandedLabel.textContent = isExpanded ? 'Menu' : 'Close';
 			}
 		});
 	}

@@ -66,10 +66,52 @@ header .navbar{
 	border-radius: 999px;
 	background-color: rgba(255, 255, 255, 0.5);
 	box-shadow: 0 10px 20px rgba(122, 89, 50, 0.08);
+	transition: background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .navbar-toggler:focus {
 	box-shadow: 0 0 0 0.2rem rgba(10, 151, 176, 0.18);
+}
+
+.navbar-toggler:hover {
+	background-color: rgba(255, 255, 255, 0.72);
+}
+
+.navbar-toggler-icon {
+	position: relative;
+	width: 22px;
+	height: 16px;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-image: none;
+}
+
+.navbar-toggler-icon span {
+	display: block;
+	width: 100%;
+	height: 2px;
+	border-radius: 999px;
+	background-color: #7a5932;
+	transform-origin: center;
+	transition: transform 0.28s ease, opacity 0.22s ease, background-color 0.25s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span {
+	background-color: #0A97B0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(1) {
+	transform: translateY(7px) rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(2) {
+	opacity: 0;
+	transform: scaleX(0.2);
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:nth-child(3) {
+	transform: translateY(-7px) rotate(-45deg);
 }
 
 .navbar-toggler-label {
@@ -138,6 +180,7 @@ header .navbar{
 
 section .container{
 	max-width: 1150px;
+	width: 100%;
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
@@ -201,7 +244,7 @@ section#introduction .image .icon{
 	background-image: url(../images/icons8-github-hover.png);
 }
 section#introduction .image>div{
-	margin: 40% auto;
+	margin: 30% auto;
 	text-align:center;
 }
 
@@ -285,13 +328,13 @@ section.yellow .title-box h2{
    
 section#about .content, section#skills .content, section#blogs .content, section#portfolio .content{
 	background-color: #FFF8DE;
-	padding: 5%;
+	padding: 40px;
 	
 } 
 
 section#tech-stack .content, section#contact .content, section#tech-stacks .content, section#experience .content{
 	background-color: #FBF8EF;
-	padding: 5%;
+	padding: 40px;
 	
 } 
 
@@ -335,7 +378,7 @@ section h6{
     border-color: #c4bdb5;
 	color: #7a5932;
 	height: 230px;
-	margin: 0 10px;
+	margin: 10px;
 }
 
 .soft-skills .icon{
@@ -1094,6 +1137,108 @@ body.portfolio-modal-open {
 }
 
 @media (max-width: 991px) {
+	section#introduction .image > div {
+		margin: auto;
+		text-align: center;
+	}
+	section .container {
+		padding-left: 16px;
+		padding-right: 16px;
+	}
+
+	section .container > [class*="col-"] {
+		width: 100%;
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+
+	section.blue .container,
+	section.orange .container,
+	section.yellow .container,
+	section#introduction .container {
+		flex-direction: column;
+	}
+
+	section#tech-stacks .container > .col-4,
+	section#experience .container > .col-4,
+	section#contact .container > .col-4 {
+		order: -1;
+	}
+
+	section.blue .title-box,
+	section.orange .title-box,
+	section.yellow .title-box {
+		padding: 72px 18px;
+	}
+
+	section.blue .title-box h2,
+	section.orange .title-box h2,
+	section.yellow .title-box h2 {
+		font-size: 42px;
+	}
+
+	section#introduction .image,
+	section#introduction .content {
+		width: 100%;
+	}
+
+	section#introduction .image {
+		padding: 28px 20px;
+	}
+
+	section#introduction .content {
+		padding: 40px;
+	}
+
+	section#introduction .content h1 {
+		font-size: 56px;
+		line-height: 0.95;
+	}
+
+	section#introduction .content p {
+		padding-left: 0;
+	}
+
+	#portfolio .row > .col-4,
+	.soft-skills .row > .col-4 {
+		width: 50%;
+		max-width: 50%;
+		flex: 0 0 50%;
+	}
+
+	.soft-skills .row .card {
+		min-height: 220px;
+	}
+
+	.technical-skills .card {
+		margin: 12px 8px;
+	}
+
+	.technical-skills,
+	.soft-skills {
+		margin-top: 32px;
+	}
+
+	.soft-skills {
+		margin-top: 48px;
+	}
+
+	#portfolio .image {
+		margin: 8px;
+	}
+
+	.portfolio-modal {
+		padding: 18px;
+	}
+
+	.portfolio-modal-prev {
+		left: 18px;
+	}
+
+	.portfolio-modal-next {
+		right: 18px;
+	}
+
 	header .navbar {
 		padding: 12px 14px;
 	}
@@ -1152,9 +1297,33 @@ body.portfolio-modal-open {
 	#contact .content::before {
 		inset: 18px;
 	}
+
+	.width-100 {
+		width: 100% !important;
+		max-width: 100% !important;
+    	flex: 0 0 100% !important;
+
+	}
 }
 
 @media (max-width: 767px) {
+	section .container {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	section.blue .title-box,
+	section.orange .title-box,
+	section.yellow .title-box {
+		padding: 52px 16px;
+	}
+
+	section.blue .title-box h2,
+	section.orange .title-box h2,
+	section.yellow .title-box h2 {
+		font-size: 34px;
+	}
+
 	.navbar-brand {
 		max-width: 230px;
 		font-size: 13px;
@@ -1163,6 +1332,98 @@ body.portfolio-modal-open {
 
 	.navbar-toggler-label {
 		display: none;
+	}
+
+	section#introduction .image-container {
+		height: 220px;
+		width: 220px;
+	}
+
+	section#introduction .content {
+		padding: 40px;
+	}
+
+	section#introduction .content h1 {
+		font-size: 42px;
+		line-height: 1;
+	}
+
+	section#introduction .image ul {
+		gap: 18px;
+	}
+
+	#portfolio .row > .col-4,
+	.soft-skills .row > .col-4 {
+		width: 50%;
+		max-width: 50%;
+		flex: 0 0 50%;
+	}
+
+	.soft-skills .row {
+		margin: 14px 0;
+	}
+
+	.technical-skills .card {
+		margin-top: 8px;
+		margin-bottom: 8px;
+	}
+
+	.technical-skills .card + .card {
+		margin-top: 12px;
+	}
+
+	.blog-actions .btn,
+	.contact-actions .btn,
+	.technical-skills-actions .btn,
+	.portfolio-actions .btn {
+		width: 100%;
+		justify-content: center;
+	}
+
+	.contact-actions {
+		flex-direction: column;
+	}
+
+	.contact-actions .btn {
+		width: 100%;
+	}
+
+	.contact-intro p,
+	.blog-intro p,
+	.tech-stack-intro p {
+		max-width: none;
+	}
+
+	.portfolio-modal {
+		padding: 12px;
+	}
+
+	.portfolio-modal-content {
+		border-radius: 20px;
+	}
+
+	.portfolio-modal-header,
+	.portfolio-modal-body {
+		padding-left: 14px;
+		padding-right: 14px;
+	}
+
+	.portfolio-modal-nav {
+		width: 42px;
+		height: 42px;
+		font-size: 1.6rem;
+	}
+
+	.portfolio-modal-prev {
+		left: 10px;
+	}
+
+	.portfolio-modal-next {
+		right: 10px;
+	}
+
+	.portfolio-modal img {
+		max-height: 68vh;
 	}
 
 	.contact-grid {
@@ -1206,5 +1467,77 @@ body.portfolio-modal-open {
 	section#introduction .content::before {
 		border-radius: 20px;
 	}
+
+	.width-100 {
+		width: 100% !important;
+		max-width: 100% !important;
+    	flex: 0 0 100% !important;
+
+	}
+}
+
+@media (max-width: 575px) {
+	.soft-skills .row > .col-4 {
+		width: 100%;
+		max-width: 100%;
+		flex: 0 0 100%;
+	}
+
+	section#introduction {
+		padding-top: 74px;
+	}
+
+	section#introduction .image {
+		padding: 22px 14px;
+	}
+
+	section#introduction .image-container {
+		height: 180px;
+		width: 180px;
+	}
+
+	section#introduction .content {
+		padding: 30px;
+	}
+
+	section#introduction .content h1 {
+		font-size: 34px;
+	}
+
+	section#introduction .content::before,
+	#portfolio .content::before,
+	#skills .content::before,
+	#experience .content::before,
+	#tech-stacks .content::before,
+	#blogs .content::before,
+	#contact .content::before {
+		inset: 12px;
+	}
+
+	section.blue .title-box h2,
+	section.orange .title-box h2,
+	section.yellow .title-box h2,
+	.blog-intro h3,
+	.tech-stack-intro h3,
+	.contact-intro h3 {
+		font-size: 30px;
+	}
+
+	.tech-stack-card,
+	.tech-stack-delivery,
+	.blog-card,
+	.contact-card {
+		padding: 18px;
+	}
+
+	section#about .content, section#skills .content, section#blogs .content, section#portfolio .content{
+		padding: 30px;
+		
+	} 
+
+	section#tech-stack .content, section#contact .content, section#tech-stacks .content, section#experience .content{
+		padding: 30px;
+		
+	} 
 }
 
