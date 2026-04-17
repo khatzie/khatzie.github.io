@@ -1543,6 +1543,7 @@ body.portfolio-modal-open {
 
 	.blog-shell, .blog-grid{
 		display: block;
+		margin-top: 20px;
 	}
 
 	.blog-card, #blogs .content::before {
