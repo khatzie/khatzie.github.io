@@ -430,46 +430,46 @@
 			"showAllLabel": "Show all blogs",
 			"posts": [
 				{
-					"title": "Understanding android.permission.DUMP in Android App Security Reports",
-					"url": "https://khatzie.medium.com/understanding-android-permission-dump-in-android-app-security-reports-042f2709346f?source=rss-804148b8f02b------2",
-					"date": "Aug 20, 2025",
-					"excerpt": "A practical look at why this Android permission appears in security scan reports and how to evaluate whether it represents a real risk.",
-					"tags": ["Android Security", "Permissions", "Mobile"]
+					"title": "How I Refactor a Messy SwiftUI View Without Breaking Everything",
+					"url": "https://khatzie.medium.com/how-i-refactor-a-messy-swiftui-view-without-breaking-everything-bc7c14830d9f?source=rss-804148b8f02b------2",
+					"date": "Aug 30, 2026",
+					"excerpt": "New post from Katherine's Medium: How I Refactor a Messy SwiftUI View Without Breaking Everything.",
+					"tags": ["Code Refactoring", "SwiftUI", "iOS Development"]
 				},
 				{
-					"title": "Installing MobSF on macOS with Docker: The Real-World Guide (With All the Gotchas!)",
-					"url": "https://khatzie.medium.com/installing-mobsf-on-macos-with-docker-the-real-world-guide-with-all-the-gotchas-82dd9b454e11?source=rss-804148b8f02b------2",
-					"date": "Aug 17, 2025",
-					"excerpt": "A step-by-step walkthrough for getting MobSF running on macOS with Docker, including the issues that usually slow setup down.",
-					"tags": ["Docker", "MobSF", "Security Testing"]
+					"title": "Finding Memory Leaks in Swift Apps: A Practical Guide",
+					"url": "https://khatzie.medium.com/finding-memory-leaks-in-swift-apps-a-practical-guide-085aaf9f1ced?source=rss-804148b8f02b------2",
+					"date": "Aug 28, 2026",
+					"excerpt": "Your app works perfectly… until memory usage keeps climbing, screens become sluggish, and eventually iOS decides to terminate it.",
+					"tags": ["Mobile App Development", "iOS Development", "SwiftUI"]
 				},
 				{
-					"title": "Optimizing Capacitor App Builds: Obfuscation, Compression, and Size Reduction",
-					"url": "https://khatzie.medium.com/optimizing-capacitor-app-builds-obfuscation-compression-and-size-reduction-54b63ebf6304?source=rss-804148b8f02b------2",
-					"date": "Aug 13, 2025",
-					"excerpt": "Techniques for tightening production builds in Ionic Vue and Capacitor projects to improve performance, shrink bundle size, and protect source code.",
-					"tags": ["Capacitor", "Performance", "Builds"]
+					"title": "Repository Pattern in SwiftUI: Useful or Unnecessary Abstraction?",
+					"url": "https://khatzie.medium.com/repository-pattern-in-swiftui-useful-or-unnecessary-abstraction-dde7c8cb0cdf?source=rss-804148b8f02b------2",
+					"date": "Aug 22, 2026",
+					"excerpt": "New post from Katherine's Medium: Repository Pattern in SwiftUI: Useful or Unnecessary Abstraction?.",
+					"tags": ["iOS Development", "SwiftUI", "Software Architecture"]
 				},
 				{
-					"title": "Why I’m All In on Offline-First Mobile Apps (And You Should Be Too)",
-					"url": "https://khatzie.medium.com/why-im-all-in-on-offline-first-mobile-apps-and-you-should-be-too-94568fd1d634?source=rss-804148b8f02b------2",
-					"date": "Jun 2, 2025",
-					"excerpt": "An argument for designing mobile products that stay useful without a constant connection, with a focus on reliability and real-world user conditions.",
-					"tags": ["Offline First", "Mobile Apps", "UX"]
+					"title": "Things I Wish I Knew Before Using SwiftUI in Production",
+					"url": "https://khatzie.medium.com/things-i-wish-i-knew-before-using-swiftui-in-production-e15d2e3be0fd?source=rss-804148b8f02b------2",
+					"date": "Aug 20, 2026",
+					"excerpt": "SwiftUI makes building interfaces incredibly fast. Maintaining a large production app built with it is a completely different experience.",
+					"tags": ["iOS Development", "Swift", "Software Engineering"]
 				},
 				{
-					"title": "Why Screen Reader Compatibility Matters for Mobile Apps",
-					"url": "https://khatzie.medium.com/why-screen-reader-compatibility-matters-for-mobile-apps-3bd6a78a19bf?source=rss-804148b8f02b------2",
-					"date": "May 18, 2025",
-					"excerpt": "A concise reminder that accessibility is product quality, not an optional add-on, especially for mobile experiences used in everyday contexts.",
-					"tags": ["Accessibility", "Screen Reader", "Mobile UX"]
+					"title": "SwiftUI Is Easy — Until Your App Becomes Large",
+					"url": "https://khatzie.medium.com/swiftui-is-easy-until-your-app-becomes-large-c3bc68b06ebe?source=rss-804148b8f02b------2",
+					"date": "Aug 18, 2026",
+					"excerpt": "New post from Katherine's Medium: SwiftUI Is Easy — Until Your App Becomes Large.",
+					"tags": ["Mobile App Development", "iOS Development", "SwiftUI"]
 				},
 				{
-					"title": "Vue 3 Essentials: My Go-To Syntax and Tips",
-					"url": "https://khatzie.medium.com/vue-3-essentials-my-go-to-syntax-and-tips-d4c149081c50?source=rss-804148b8f02b------2",
-					"date": "Apr 11, 2025",
-					"excerpt": "A personal cheat sheet of Vue 3 syntax, patterns, and day-to-day tips that help keep frontend development faster and more consistent.",
-					"tags": ["Vue 3", "Frontend", "JavaScript"]
+					"title": "The SwiftUI Debugging Checklist I Use Before Every Release",
+					"url": "https://khatzie.medium.com/the-swiftui-debugging-checklist-i-use-before-every-release-01ca729331be?source=rss-804148b8f02b------2",
+					"date": "Aug 16, 2026",
+					"excerpt": "It is also the moment when all of the small assumptions made during development finally meet real users, real devices, real networks, and real data.",
+					"tags": ["Software Engineering", "Swift", "Debugging"]
 				}
 			]
 		},
