@@ -430,6 +430,13 @@
 			"showAllLabel": "Show all blogs",
 			"posts": [
 				{
+					"title": "Appium for Beginners: How to Set Up Appium in Your Mobile Project",
+					"url": "https://khatzie.medium.com/appium-for-beginners-how-to-set-up-appium-in-your-mobile-project-acc839339b33?source=rss-804148b8f02b------2",
+					"date": "Sep 1, 2026",
+					"excerpt": "New post from Katherine's Medium: Appium for Beginners: How to Set Up Appium in Your Mobile Project.",
+					"tags": ["Android Development", "Test Automation", "Appium"]
+				},
+				{
 					"title": "How I Refactor a Messy SwiftUI View Without Breaking Everything",
 					"url": "https://khatzie.medium.com/how-i-refactor-a-messy-swiftui-view-without-breaking-everything-bc7c14830d9f?source=rss-804148b8f02b------2",
 					"date": "Aug 30, 2026",
@@ -440,7 +447,7 @@
 					"title": "Finding Memory Leaks in Swift Apps: A Practical Guide",
 					"url": "https://khatzie.medium.com/finding-memory-leaks-in-swift-apps-a-practical-guide-085aaf9f1ced?source=rss-804148b8f02b------2",
 					"date": "Aug 28, 2026",
-					"excerpt": "Your app works perfectly… until memory usage keeps climbing, screens become sluggish, and eventually iOS decides to terminate it.",
+					"excerpt": "New post from Katherine's Medium: Finding Memory Leaks in Swift Apps: A Practical Guide.",
 					"tags": ["Mobile App Development", "iOS Development", "SwiftUI"]
 				},
 				{
@@ -454,7 +461,7 @@
 					"title": "Things I Wish I Knew Before Using SwiftUI in Production",
 					"url": "https://khatzie.medium.com/things-i-wish-i-knew-before-using-swiftui-in-production-e15d2e3be0fd?source=rss-804148b8f02b------2",
 					"date": "Aug 20, 2026",
-					"excerpt": "SwiftUI makes building interfaces incredibly fast. Maintaining a large production app built with it is a completely different experience.",
+					"excerpt": "New post from Katherine's Medium: Things I Wish I Knew Before Using SwiftUI in Production.",
 					"tags": ["iOS Development", "Swift", "Software Engineering"]
 				},
 				{
@@ -463,13 +470,6 @@
 					"date": "Aug 18, 2026",
 					"excerpt": "New post from Katherine's Medium: SwiftUI Is Easy — Until Your App Becomes Large.",
 					"tags": ["Mobile App Development", "iOS Development", "SwiftUI"]
-				},
-				{
-					"title": "The SwiftUI Debugging Checklist I Use Before Every Release",
-					"url": "https://khatzie.medium.com/the-swiftui-debugging-checklist-i-use-before-every-release-01ca729331be?source=rss-804148b8f02b------2",
-					"date": "Aug 16, 2026",
-					"excerpt": "It is also the moment when all of the small assumptions made during development finally meet real users, real devices, real networks, and real data.",
-					"tags": ["Software Engineering", "Swift", "Debugging"]
 				}
 			]
 		},
