@@ -430,46 +430,46 @@
 			"showAllLabel": "Show all blogs",
 			"posts": [
 				{
-					"title": "Can AI Coding Tools See Your Company’s Code? What Every Developer Should Know",
-					"url": "https://khatzie.medium.com/can-ai-coding-tools-see-your-companys-code-what-every-developer-should-know-cb2e03d1e40f?source=rss-804148b8f02b------2",
-					"date": "Sep 15, 2026",
-					"excerpt": "AI coding assistants have changed the way many developers write software.",
-					"tags": ["Developer Tools", "Coding", "Ai"]
+					"title": "My First Cloud SQL Database: Connecting a Cloud Run Application to PostgreSQL",
+					"url": "https://khatzie.medium.com/my-first-cloud-sql-database-connecting-a-cloud-run-application-to-postgresql-75e7fcae1c4e?source=rss-804148b8f02b------2",
+					"date": "Oct 15, 2026",
+					"excerpt": "Learn how to connect a Node.js application running on Google Cloud Run to a managed PostgreSQL database using Cloud SQL, environment variables, and secure credentials.",
+					"tags": ["Gcp", "Cloud Computing", "Cloud Sql"]
 				},
 				{
-					"title": "MVVM Isn’t Enough: Structuring Large SwiftUI Applications",
-					"url": "https://khatzie.medium.com/mvvm-isnt-enough-structuring-large-swiftui-applications-28999a9fabaa?source=rss-804148b8f02b------2",
-					"date": "Sep 14, 2026",
-					"excerpt": "When I first started building SwiftUI applications, MVVM felt like the answer to everything.",
-					"tags": ["Mobile Development", "iOS Development", "Swift"]
+					"title": "My First Cloud Run Deployment: From Local Code to the Cloud",
+					"url": "https://khatzie.medium.com/my-first-cloud-run-deployment-from-local-code-to-the-cloud-12c756c80e02?source=rss-804148b8f02b------2",
+					"date": "Oct 14, 2026",
+					"excerpt": "Learn how to deploy a local application to Google Cloud Run, understand containers, configure environment variables, and troubleshoot your first cloud deployment.",
+					"tags": ["Runcloud", "Web Development", "Gcp"]
 				},
 				{
-					"title": "PostgreSQL vs MySQL: What I Learned After Coming From MySQL",
-					"url": "https://khatzie.medium.com/postgresql-vs-mysql-what-i-learned-after-coming-from-mysql-4ab2643d5287?source=rss-804148b8f02b------2",
-					"date": "Sep 13, 2026",
-					"excerpt": "If you’ve spent years working with MySQL and suddenly have to work with PostgreSQL, the first reaction is usually:",
-					"tags": ["Web Development", "Technology", "Programming"]
+					"title": "My First GCP Project: Understanding Projects, Regions, and Resources",
+					"url": "https://khatzie.medium.com/my-first-gcp-project-understanding-projects-regions-and-resources-dfd21bf72cc7?source=rss-804148b8f02b------2",
+					"date": "Oct 13, 2026",
+					"excerpt": "A beginner-friendly guide to GCP projects, regions, zones, and resources — and why these concepts matter before you deploy anything.",
+					"tags": ["Software Development", "Programming", "Google Cloud"]
 				},
 				{
-					"title": "How I Would Architect a SwiftUI App From Scratch in 2026",
-					"url": "https://khatzie.medium.com/how-i-would-architect-a-swiftui-app-from-scratch-in-2026-6aa15338db55?source=rss-804148b8f02b------2",
-					"date": "Sep 12, 2026",
-					"excerpt": "If I were starting a brand-new SwiftUI application today, I would do something very different from what I did a few years ago.",
-					"tags": ["Software Architecture", "iOS Development", "Swift"]
+					"title": "GCP for Developers: What You Actually Need to Know in 2026",
+					"url": "https://khatzie.medium.com/gcp-for-developers-what-you-actually-need-to-know-in-2026-b42d6c51613a?source=rss-804148b8f02b------2",
+					"date": "Oct 12, 2026",
+					"excerpt": "You don’t need to learn all of Google Cloud. Start with the services that actually matter when building and deploying applications.",
+					"tags": ["Gcp", "Software Development", "DevOps"]
 				},
 				{
-					"title": "7 Reasons Your SwiftUI App Feels Slow — And How to Fix Them",
-					"url": "https://khatzie.medium.com/7-reasons-your-swiftui-app-feels-slow-and-how-to-fix-them-f785ccc63555?source=rss-804148b8f02b------2",
-					"date": "Sep 7, 2026",
-					"excerpt": "Your app might not be slow because of SwiftUI. Here’s how to find the real performance problems.",
-					"tags": ["SwiftUI", "Swift Performance", "Swift Architecture"]
+					"title": "Instruments for iOS Developers: The Beginner-Friendly Guide I Wish I Had",
+					"url": "https://khatzie.medium.com/instruments-for-ios-developers-the-beginner-friendly-guide-i-wish-i-had-6ded74c0a19f?source=rss-804148b8f02b------2",
+					"date": "Oct 11, 2026",
+					"excerpt": "If you are an iOS developer, you’ve probably heard someone say:",
+					"tags": ["Performance Optimization", "Xcode", "iOS Development"]
 				},
 				{
-					"title": "Dependency Injection in Swift Without Overengineering It",
-					"url": "https://khatzie.medium.com/dependency-injection-in-swift-without-overengineering-it-3952b4b33cf3?source=rss-804148b8f02b------2",
-					"date": "Sep 5, 2026",
-					"excerpt": "Dependency Injection sounds like one of those software engineering concepts that requires a diagram, three protocols, a dependency container, and an architecture document before you can write a single line of code.",
-					"tags": ["iOS Development", "SwiftUI", "Software Architecture"]
+					"title": "AI Code Review for Swift: Useful Assistant or Dangerous Shortcut?",
+					"url": "https://khatzie.medium.com/ai-code-review-for-swift-useful-assistant-or-dangerous-shortcut-6df678c179c8?source=rss-804148b8f02b------2",
+					"date": "Oct 10, 2026",
+					"excerpt": "AI coding tools have changed how many developers write software.",
+					"tags": ["Ai Code Review", "iOS Development", "Artificial Intelligence"]
 				}
 			]
 		},
