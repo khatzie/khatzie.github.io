@@ -430,6 +430,13 @@
 			"showAllLabel": "Show all blogs",
 			"posts": [
 				{
+					"title": "The iPhone Duo Is Coming: What iOS Developers Need to Know About Foldable Apps",
+					"url": "https://khatzie.medium.com/the-iphone-duo-is-coming-what-ios-developers-need-to-know-about-foldable-apps-042437401780?source=rss-804148b8f02b------2",
+					"date": "Oct 26, 2026",
+					"excerpt": "Apple has entered a new chapter in the iPhone’s evolution.",
+					"tags": ["Iphone Duo", "Mobile App Development", "SwiftUI"]
+				},
+				{
 					"title": "My First Cloud SQL Database: Connecting a Cloud Run Application to PostgreSQL",
 					"url": "https://khatzie.medium.com/my-first-cloud-sql-database-connecting-a-cloud-run-application-to-postgresql-75e7fcae1c4e?source=rss-804148b8f02b------2",
 					"date": "Oct 15, 2026",
@@ -463,13 +470,6 @@
 					"date": "Oct 11, 2026",
 					"excerpt": "If you are an iOS developer, you’ve probably heard someone say:",
 					"tags": ["Performance Optimization", "Xcode", "iOS Development"]
-				},
-				{
-					"title": "AI Code Review for Swift: Useful Assistant or Dangerous Shortcut?",
-					"url": "https://khatzie.medium.com/ai-code-review-for-swift-useful-assistant-or-dangerous-shortcut-6df678c179c8?source=rss-804148b8f02b------2",
-					"date": "Oct 10, 2026",
-					"excerpt": "AI coding tools have changed how many developers write software.",
-					"tags": ["Ai Code Review", "iOS Development", "Artificial Intelligence"]
 				}
 			]
 		},
